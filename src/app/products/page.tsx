@@ -30,7 +30,7 @@ export default function Products() {
     >
       <main
         className={cn(
-          `flex min-h-screen w-full max-w-3xl flex-col items-center justify-between bg-white px-16 py-32 sm:items-start dark:bg-black`,
+          `flex min-h-screen w-full flex-col items-center justify-between bg-white px-20 py-20 sm:items-start dark:bg-black`,
         )}
       >
         <h1>Products</h1>

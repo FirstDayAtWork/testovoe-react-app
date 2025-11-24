@@ -26,7 +26,3 @@ export type Dimensions = {
   height: number;
   depth: number;
 };
-
-export type DetailsProps = {
-  details: string;
-};
