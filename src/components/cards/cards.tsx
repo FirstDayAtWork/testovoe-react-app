@@ -11,7 +11,7 @@ export default function Cards(props: CardsProps) {
   const { items } = props;
 
   return (
-    <ul className={cn('flex flex-row flex-wrap justify-center gap-5')}>
+    <ul className={cn('flex max-w-[1000px] flex-row flex-wrap justify-center gap-5')}>
       {items.products.length > 0 &&
         items.products.map((item) => <Card key={item.id + '.'} item={item} />)}
     </ul>

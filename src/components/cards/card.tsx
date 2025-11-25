@@ -1,7 +1,10 @@
 import type { ProductDetails } from '@/types/types';
 import { cn } from '@/utils/cn';
 import Image from 'next/image';
+import RemoveButton from './remove-button';
 import { useRouter } from 'next/navigation';
+import type { MouseEvent } from 'react';
+import LikeButton from './like-button';
 
 type CardsProps = {
   item: ProductDetails;
@@ -11,7 +14,14 @@ export default function Card(props: CardsProps) {
   const { item } = props;
   const navigate = useRouter();
 
-  function handleCardClick() {
+  function handleCardClick(event: MouseEvent) {
+    if (
+      event.target instanceof HTMLButtonElement ||
+      event.target instanceof SVGSVGElement ||
+      event.target instanceof SVGPathElement
+    ) {
+      return;
+    }
     navigate.push(`/products/${item.id}`);
   }
 
@@ -23,8 +33,10 @@ export default function Card(props: CardsProps) {
       )}
     >
       {item.images[0] && (
-        <div className={cn('flex justify-center p-2')}>
+        <div className={cn('relative flex justify-center p-2')}>
+          <LikeButton id={item.id} />
           <Image src={item.images[0]} alt="Product Image" width={150} height={150} />
+          <RemoveButton id={item.id} />
         </div>
       )}
       <div className={cn('flex h-35 flex-col p-4')}>

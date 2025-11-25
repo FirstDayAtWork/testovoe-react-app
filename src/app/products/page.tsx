@@ -2,7 +2,7 @@
 
 import getData from '@/api/getData';
 import Cards from '@/components/cards/cards';
-import { useProductStore } from '@/stores/useProductStore';
+import { useProductStore } from '@/stores/product-store';
 import { cn } from '@/utils/cn';
 import { URLS } from '@/utils/urls';
 import { useEffect } from 'react';
@@ -30,7 +30,7 @@ export default function Products() {
     >
       <main
         className={cn(
-          `flex min-h-screen w-full flex-col items-center justify-between bg-white px-20 py-20 sm:items-start dark:bg-black`,
+          `flex min-h-screen w-full flex-col items-center justify-center bg-white px-20 py-20 dark:bg-black`,
         )}
       >
         <h1>Products</h1>

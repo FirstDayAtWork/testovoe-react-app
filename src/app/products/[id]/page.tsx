@@ -1,6 +1,6 @@
 'use client';
 import Details from '@/components/details/details';
-import { useProductStore } from '@/stores/useProductStore';
+import { useProductStore } from '@/stores/product-store';
 import { usePathname } from 'next/navigation';
 
 export default function Page() {
