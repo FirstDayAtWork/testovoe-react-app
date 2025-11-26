@@ -16,6 +16,7 @@
   --color-card: var(--card-background);
   --color-border-card: var(--border-color);
   --color-text-card: var(--text-color);
+  --color-button: var(--button-background);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,6 +24,7 @@
     --background: #0a0a0a;
     --foreground: #ededed;
     --card-background: #121419;
+    --button-background: #73fdea;
   }
 }
 

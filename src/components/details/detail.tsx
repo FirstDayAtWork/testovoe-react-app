@@ -1,4 +1,5 @@
 import type { ProductDetails } from '@/types/types';
+import { cn } from '@/utils/cn';
 
 type DetailProps = {
   data: ProductDetails;
@@ -13,7 +14,7 @@ export default function Detail(props: DetailProps) {
     return (
       <>
         {array.map((item) => (
-          <li key={'.' + item[0]}>
+          <li key={'.' + item[0]} className={cn('mt-2 flex justify-between p-2 capitalize')}>
             <span>{item[0]}</span>
             <span>{item[1]}</span>
           </li>
@@ -23,7 +24,7 @@ export default function Detail(props: DetailProps) {
   }
 
   return (
-    <li>
+    <li className={cn('mt-2 flex justify-between p-2 capitalize')}>
       <span>{name}</span>
       <span>{data[name] ?? 'unknown'}</span>
     </li>

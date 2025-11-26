@@ -35,7 +35,13 @@ export default function Card(props: CardsProps) {
       {item.images[0] && (
         <div className={cn('relative flex justify-center p-2')}>
           <LikeButton id={item.id} />
-          <Image src={item.images[0]} alt="Product Image" width={150} height={150} />
+          <Image
+            src={item.images[0]}
+            alt="Product Image"
+            width={150}
+            height={150}
+            className={cn('object-contain')}
+          />
           <RemoveButton id={item.id} />
         </div>
       )}
