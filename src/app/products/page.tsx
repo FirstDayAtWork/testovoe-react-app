@@ -1,27 +1,31 @@
 'use client';
 
-import getData from '@/api/getData';
 import Cards from '@/components/cards/cards';
 import Settings from '@/components/settings/settings';
 import { useProductStore } from '@/stores/product-store';
+import ErrorUi from '@/ui/error/error-ui';
+import Loader from '@/ui/loader/loader';
 import { cn } from '@/utils/cn';
 import { URLS } from '@/utils/urls';
 import { useEffect } from 'react';
 
 export default function Products() {
+  const fetchData = useProductStore((state) => state.fetchData);
+  const error = useProductStore((state) => state.error);
+  const isLoading = useProductStore((state) => state.isLoading);
   const items = useProductStore((state) => state.items);
-  const initItems = useProductStore((state) => state.initItems);
 
   useEffect(() => {
-    (async () => {
-      const data = await getData(URLS.get);
+    fetchData(URLS.get);
+  }, [fetchData]);
 
-      if (!(data instanceof Error)) {
-        console.log('DATA', data);
-        initItems(data);
-      }
-    })();
-  }, []);
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (error) {
+    return <ErrorUi error={error} />;
+  }
 
   return (
     <div

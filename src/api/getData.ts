@@ -10,6 +10,9 @@ export default async function getData(url: string) {
     }
   } catch (error) {
     console.error('Error', error);
+
+    if (error instanceof Error) {
+      return error;
+    }
   }
-  throw new Error('Something went wrong');
 }

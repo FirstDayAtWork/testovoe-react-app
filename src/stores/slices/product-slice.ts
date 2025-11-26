@@ -6,6 +6,9 @@ export type ProductSlice = {
   initItems: (items: Products) => void;
   setItem: (item: ProductDetails) => void;
   removeItem: (id: number) => void;
+  error: null | Error;
+  isLoading: boolean;
+  fetchData: (url: string) => Promise<void>;
 };
 
 export const useProductSlice: StateCreator<ProductSlice> = (set) => ({
@@ -29,5 +32,20 @@ export const useProductSlice: StateCreator<ProductSlice> = (set) => ({
         products: state.items.products.filter((element) => element.id !== id),
       },
     }));
+  },
+
+  isLoading: false,
+  error: null,
+  fetchData: async (url: string) => {
+    set({ isLoading: true, error: null });
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      set({ items: data, isLoading: false });
+    } catch (error) {
+      if (error instanceof Error) {
+        set({ error, isLoading: false });
+      }
+    }
   },
 });
