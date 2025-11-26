@@ -2,6 +2,7 @@
 
 import getData from '@/api/getData';
 import Cards from '@/components/cards/cards';
+import Settings from '@/components/settings/settings';
 import { useProductStore } from '@/stores/product-store';
 import { cn } from '@/utils/cn';
 import { URLS } from '@/utils/urls';
@@ -30,10 +31,10 @@ export default function Products() {
     >
       <main
         className={cn(
-          `flex min-h-screen w-full flex-col items-center justify-center bg-white px-20 py-20 dark:bg-black`,
+          `flex min-h-screen w-full flex-col items-center justify-center gap-5 bg-white px-20 py-20 dark:bg-black`,
         )}
       >
-        <h1>Products</h1>
+        <Settings />
         <Cards items={items} />
       </main>
     </div>

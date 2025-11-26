@@ -1,12 +1,12 @@
-import { create } from 'zustand';
+import type { StateCreator } from 'zustand';
 
-export type LikeStoreTypes = {
+export type LikeSlice = {
   likedItems: number[];
   addLikedItem: (id: number) => void;
   removeLikedItem: (id: number) => void;
 };
 
-export const useLikeStore = create<LikeStoreTypes>((set) => ({
+export const useLikeSlice: StateCreator<LikeSlice> = (set) => ({
   likedItems: [],
   addLikedItem: (id) => {
     set((state) => ({ likedItems: [...state.likedItems, id] }));
@@ -14,4 +14,4 @@ export const useLikeStore = create<LikeStoreTypes>((set) => ({
   removeLikedItem: (id) => {
     set((state) => ({ likedItems: [...state.likedItems.filter((item) => item !== id)] }));
   },
-}));
+});

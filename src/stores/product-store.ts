@@ -1,33 +1,12 @@
-import type { ProductDetails, Products } from '@/types/types';
 import { create } from 'zustand';
+import { useProductSlice, type ProductSlice } from './slices/product-slice';
+import { useLikeSlice, type LikeSlice } from './slices/like-slice';
+import { useFilterSlice, type FilterSlice } from './slices/filter-slice';
 
-export type ProductStoreTypes = {
-  items: Products;
-  initItems: (items: Products) => void;
-  setItem: (item: ProductDetails) => void;
-  removeItem: (id: number) => void;
-};
+type ProductStoreTypes = ProductSlice & LikeSlice & FilterSlice;
 
-export const useProductStore = create<ProductStoreTypes>((set) => ({
-  items: {
-    products: [],
-    total: 0,
-    skip: 0,
-    limit: 0,
-    query: '',
-  },
-  initItems: (products): void => {
-    set({ items: products });
-  },
-  setItem: (item): void => {
-    set((state) => ({ items: { ...state.items, products: [...state.items.products, item] } }));
-  },
-  removeItem: (id): void => {
-    set((state) => ({
-      items: {
-        ...state.items,
-        products: state.items.products.filter((element) => element.id !== id),
-      },
-    }));
-  },
+export const useProductStore = create<ProductStoreTypes>((...a) => ({
+  ...useProductSlice(...a),
+  ...useLikeSlice(...a),
+  ...useFilterSlice(...a),
 }));

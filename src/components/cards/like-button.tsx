@@ -1,4 +1,4 @@
-import { useLikeStore } from '@/stores/like-store';
+import { useProductStore } from '@/stores/product-store';
 import { cn } from '@/utils/cn';
 import { isLiked } from '@/utils/is-liked';
 
@@ -9,9 +9,9 @@ type RemoveButtonProps = {
 export default function LikeButton(props: RemoveButtonProps) {
   const { id } = props;
 
-  const likeItems = useLikeStore((state) => state.likedItems);
-  const addLikedItem = useLikeStore((state) => state.addLikedItem);
-  const removeLikedItem = useLikeStore((state) => state.removeLikedItem);
+  const likeItems = useProductStore((state) => state.likedItems);
+  const addLikedItem = useProductStore((state) => state.addLikedItem);
+  const removeLikedItem = useProductStore((state) => state.removeLikedItem);
 
   function handleRemoveEvent(): void {
     if (isLiked(id, likeItems)) {
