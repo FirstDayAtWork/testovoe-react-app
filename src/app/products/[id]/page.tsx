@@ -1,5 +1,5 @@
 'use client';
-import BackButton from '@/components/details/back-button';
+import RedirectButton from '@/ui/redirect-button/redirect-button';
 import Details from '@/components/details/details';
 import { useProductStore } from '@/stores/product-store';
 import { cn } from '@/utils/cn';
@@ -16,7 +16,7 @@ export default function Page() {
     <div className={cn('flex w-full flex-col items-center justify-center p-5 max-sm:p-1')}>
       {currentItem && <Details currentItem={currentItem} />}
       <div className={cn('flex w-full justify-center p-5')}>
-        <BackButton />
+        <RedirectButton href="/" title="Go to Main" width={'400px'} />
       </div>
     </div>
   );

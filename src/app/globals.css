@@ -5,6 +5,7 @@
   --foreground: #171717;
   --card-background: #121419;
   --border-color: #1f2029;
+  --border-color-2: #121212;
   --text-color: rgba(224, 224, 224, 0.58);
 }
 
@@ -15,6 +16,7 @@
   --font-mono: var(--font-geist-mono);
   --color-card: var(--card-background);
   --color-border-card: var(--border-color);
+  --color-border-2: var(--border-color-2);
   --color-text-card: var(--text-color);
   --color-button: var(--button-background);
 }

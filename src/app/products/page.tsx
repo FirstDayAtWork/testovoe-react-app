@@ -35,7 +35,7 @@ export default function Products() {
     >
       <main
         className={cn(
-          `flex min-h-screen w-full flex-col items-center justify-center gap-5 bg-white px-20 py-20 dark:bg-black`,
+          `flex min-h-screen w-full flex-col items-center justify-center gap-5 bg-white pt-5 pr-20 pb-20 pl-20 dark:bg-black`,
         )}
       >
         <Settings />

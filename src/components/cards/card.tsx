@@ -29,7 +29,7 @@ export default function Card(props: CardsProps) {
     <li
       onClick={handleCardClick}
       className={cn(
-        'bg-card border-border-card h-[317px] w-[320px] overflow-hidden rounded-lg border-[3px] shadow-md transition-shadow duration-300 hover:shadow-lg',
+        'bg-card border-border-card h-[317px] w-[320px] overflow-hidden rounded-lg border-[3px]',
       )}
     >
       {item.images[0] && (
