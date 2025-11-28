@@ -25,6 +25,7 @@ export default function Details(props: DetailsProps) {
             width={300}
             height={300}
             className={cn('object-contain max-md:m-auto')}
+            loading="eager"
           />
         )}
         <div className={cn('m-10 flex flex-col max-sm:m-1')}>

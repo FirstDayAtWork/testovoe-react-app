@@ -16,8 +16,9 @@ export default function Products() {
   const items = useProductStore((state) => state.items);
 
   useEffect(() => {
+    if (items.products.length > 0) return;
     fetchData(URLS.get);
-  }, [fetchData]);
+  }, [fetchData, items.products.length]);
 
   if (isLoading) {
     return <Loader />;
