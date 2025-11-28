@@ -28,14 +28,10 @@ export default function Products() {
   }
 
   return (
-    <div
-      className={cn(
-        'flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black',
-      )}
-    >
+    <div className={cn('flex min-h-screen items-center justify-center font-sans dark:bg-black')}>
       <main
         className={cn(
-          `flex min-h-screen w-full flex-col items-center justify-center gap-5 bg-white pt-5 pr-20 pb-20 pl-20 dark:bg-black`,
+          `flex min-h-screen w-full flex-col items-center justify-center gap-5 pt-5 pr-20 pb-20 pl-20 dark:bg-black`,
         )}
       >
         <Settings />

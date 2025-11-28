@@ -7,6 +7,8 @@
   --border-color: #1f2029;
   --border-color-2: #121212;
   --text-color: rgba(224, 224, 224, 0.58);
+  --disabled-bg-color: rgb(71 71 71 / 40%);
+  --disabled-color: rgb(104 104 104 / 40%);
 }
 
 @theme inline {
@@ -19,6 +21,8 @@
   --color-border-2: var(--border-color-2);
   --color-text-card: var(--text-color);
   --color-button: var(--button-background);
+  --color-bg-disabled: var(--disabled-bg-color);
+  --color-disabled: var(--disabled-color);
 }
 
 @media (prefers-color-scheme: dark) {

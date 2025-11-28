@@ -14,7 +14,7 @@ export default function Details(props: DetailsProps) {
   return (
     <div
       className={cn(
-        'flex max-w-[1000px] items-center justify-center rounded-2xl bg-zinc-50 p-5 font-sans dark:bg-black',
+        'flex max-w-[1000px] items-center justify-center rounded-2xl p-5 font-sans dark:bg-black',
       )}
     >
       <div className={cn('flex flex-row max-md:flex-col')}>
