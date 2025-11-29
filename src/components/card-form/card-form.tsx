@@ -1,3 +1,5 @@
+'use client';
+
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { standardSchemaResolver } from '@hookform/resolvers/standard-schema';
@@ -65,12 +67,12 @@ export default function CreateForm() {
       <div className={cn('w-full text-center')}>
         <button
           className={cn(
-            `mb-2 w-full max-w-[350px] rounded-[10px] border-[3px] border-emerald-600 bg-emerald-600 px-[25px] py-[15px] text-lg text-white ${!isValid && 'disabled'} disabled:bg-bg-disabled disabled:text-disabled disabled:border-bg-disabled disabled:brightness-80 disabled:grayscale-80`,
+            `m-4 w-full max-w-[200px] rounded-[10px] border-[3px] border-emerald-600 bg-emerald-600 px-[25px] py-[15px] text-lg text-white ${!isValid && 'disabled'} disabled:bg-bg-disabled disabled:text-disabled disabled:border-bg-disabled hover:cursor-pointer hover:border-emerald-700 hover:bg-emerald-700 hover:transition-colors disabled:cursor-default disabled:brightness-80 disabled:grayscale-80`,
           )}
           disabled={!isValid}
           type="submit"
         >
-          Create Card
+          Save
         </button>
       </div>
     </form>

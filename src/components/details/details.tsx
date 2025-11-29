@@ -14,10 +14,10 @@ export default function Details(props: DetailsProps) {
   return (
     <div
       className={cn(
-        'flex max-w-[1000px] items-center justify-center rounded-2xl p-5 font-sans dark:bg-black',
+        'flex w-full max-w-[1000px] items-center justify-center rounded-2xl p-5 font-sans dark:bg-black',
       )}
     >
-      <div className={cn('flex flex-row max-md:flex-col')}>
+      <div className={cn('flex w-full flex-row max-md:flex-col')}>
         {currentItem.images[0] && (
           <Image
             src={currentItem.images[0]}
@@ -28,7 +28,7 @@ export default function Details(props: DetailsProps) {
             loading="eager"
           />
         )}
-        <div className={cn('m-10 flex flex-col max-sm:m-1')}>
+        <div className={cn('m-10 flex w-full flex-col max-sm:m-1')}>
           <span className={cn('mb-2 min-h-14 text-2xl font-semibold text-white')}>
             {currentItem.title}
           </span>

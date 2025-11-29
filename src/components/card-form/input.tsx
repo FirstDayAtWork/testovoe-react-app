@@ -1,9 +1,9 @@
+'use client';
+
 import type { ChangeEvent, JSX } from 'react';
 import type { FieldErrors, UseFormRegister, UseFormSetValue } from 'react-hook-form';
 import { FormInputs } from '@/zod/schema';
 import { cn } from '@/utils/cn';
-// import type { FormInputs } from '../../../zod/schema';
-// import { DataList } from '../datalist/datalist';
 
 type InputProps = {
   register: UseFormRegister<FormInputs>;

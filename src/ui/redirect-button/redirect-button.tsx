@@ -23,7 +23,7 @@ export default function RedirectButton(props: RedirectButtonProps) {
     <button
       onClick={handleClick}
       className={cn(
-        `bg-card border-border-card text-button m-auto w-full rounded-[10px] border-[3px] px-[25px] py-[15px] text-lg ${setButtonWidth(width)}`,
+        `bg-card border-border-card text-button hover:border-button m-auto w-full rounded-[10px] border-[3px] px-[25px] py-[15px] text-lg hover:cursor-pointer hover:transition-all ${setButtonWidth(width)}`,
       )}
     >
       {title}

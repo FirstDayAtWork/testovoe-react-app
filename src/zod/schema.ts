@@ -10,7 +10,8 @@ const stringValidation = z
   .min(2)
   .max(72)
   .regex(/^[A-Z]/, { error: 'Must be Capitalized!' })
-  .regex(/^\w+$/, { error: 'Word chars only!' });
+  .regex(/^[\s\w]+$/, { error: 'Word chars and spaces only!' })
+  .trim();
 
 export const basicSchema = z.object({
   title: stringValidation,

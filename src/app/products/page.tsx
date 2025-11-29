@@ -5,6 +5,7 @@ import Settings from '@/components/settings/settings';
 import { useProductStore } from '@/stores/product-store';
 import ErrorUi from '@/ui/error/error-ui';
 import Loader from '@/ui/loader/loader';
+import ReloadButton from '@/ui/reload-button/reload-button';
 import { cn } from '@/utils/cn';
 import { URLS } from '@/utils/urls';
 import { useEffect } from 'react';
@@ -25,14 +26,19 @@ export default function Products() {
   }
 
   if (error) {
-    return <ErrorUi error={error} />;
+    return (
+      <div className={cn('flex flex-col items-center')}>
+        <ErrorUi error={error} />
+        <ReloadButton />
+      </div>
+    );
   }
 
   return (
     <div className={cn('flex min-h-screen items-center justify-center font-sans dark:bg-black')}>
       <main
         className={cn(
-          `flex min-h-screen w-full flex-col items-center justify-center gap-5 pt-5 pr-20 pb-20 pl-20 dark:bg-black`,
+          `flex min-h-screen w-full flex-col items-center gap-5 pt-5 pr-20 pb-20 pl-20 dark:bg-black`,
         )}
       >
         <Settings />

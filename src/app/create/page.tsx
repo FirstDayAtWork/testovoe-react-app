@@ -12,9 +12,10 @@ export default function Page() {
     >
       <main
         className={cn(
-          `bg-card border-border-card flex w-full max-w-3xl flex-col items-center justify-between gap-5 rounded-lg border-[3px] sm:items-start`,
+          `bg-card border-border-card flex w-full max-w-3xl flex-col items-center justify-between rounded-lg border-[3px] sm:items-start`,
         )}
       >
+        <h2 className={cn('ext-text-card m-4 text-4xl')}>Create Card</h2>
         <CreateForm />
       </main>
     </div>
