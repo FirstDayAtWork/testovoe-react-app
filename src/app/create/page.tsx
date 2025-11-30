@@ -2,12 +2,15 @@
 
 import CreateForm from '@/components/card-form/card-form';
 import { cn } from '@/utils/cn';
+import { usePathname } from 'next/navigation';
 
 export default function Page() {
+  const pathname = usePathname();
+
   return (
     <div
       className={cn(
-        'flex h-[calc(100vh-60px)] items-center justify-center bg-black font-sans max-sm:h-full',
+        'flex h-[calc(100vh-76px)] items-center justify-center bg-black font-sans max-sm:h-full',
       )}
     >
       <main
@@ -16,7 +19,7 @@ export default function Page() {
         )}
       >
         <h2 className={cn('ext-text-card m-4 text-4xl')}>Create Card</h2>
-        <CreateForm />
+        <CreateForm path={pathname} />
       </main>
     </div>
   );

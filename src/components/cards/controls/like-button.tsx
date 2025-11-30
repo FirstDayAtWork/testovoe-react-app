@@ -24,9 +24,10 @@ export default function LikeButton(props: RemoveButtonProps) {
   return (
     <button
       type="button"
-      name="close-details"
+      name="like"
       onClick={handleRemoveEvent}
-      className={cn('absolute top-2 left-2')}
+      className={cn('hover:cursor-pointer')}
+      title="Add to Favourite"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

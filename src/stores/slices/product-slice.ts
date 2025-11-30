@@ -5,6 +5,7 @@ export type ProductSlice = {
   items: Products;
   initItems: (items: Products) => void;
   setItem: (item: ProductDetails) => void;
+  updateItem: (id: number, item: ProductDetails) => void;
   removeItem: (id: number) => void;
   error: null | Error;
   isLoading: boolean;
@@ -24,6 +25,14 @@ export const useProductSlice: StateCreator<ProductSlice> = (set) => ({
   },
   setItem: (item): void => {
     set((state) => ({ items: { ...state.items, products: [...state.items.products, item] } }));
+  },
+  updateItem: (id, updatedItem) => {
+    set((state) => ({
+      items: {
+        ...state.items,
+        products: state.items.products.map((item) => (item.id === id ? updatedItem : item)),
+      },
+    }));
   },
   removeItem: (id): void => {
     set((state) => ({

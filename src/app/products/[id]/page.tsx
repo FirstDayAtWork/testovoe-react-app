@@ -14,7 +14,20 @@ export default function Page() {
 
   return (
     <div className={cn('flex w-full flex-col items-center justify-center p-5 max-sm:p-1')}>
-      {currentItem && <Details currentItem={currentItem} />}
+      {currentItem ? (
+        <Details currentItem={currentItem} />
+      ) : (
+        <h2 className={cn('m-5 flex flex-col gap-5')}>
+          <span className={cn('text-xl')}>
+            {
+              "Ooops! Since we can't upload created Cards to API and then get em back to our app. I decided to not fetch single card in this particular task xD."
+            }
+          </span>
+          <span className={cn('text-text-card text-center text-lg')}>
+            {'So please go back to Products page and click on the right card ;O'}
+          </span>
+        </h2>
+      )}
       <div className={cn('flex w-full justify-center p-5')}>
         <RedirectButton href="/" title="Go to Main" width={'400px'} />
       </div>

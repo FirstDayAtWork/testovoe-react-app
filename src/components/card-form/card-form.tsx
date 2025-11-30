@@ -11,19 +11,58 @@ import { cn } from '@/utils/cn';
 import { gridItems } from '@/utils/grid-items';
 import { useProductStore } from '@/stores/product-store';
 import { ProductDetails } from '@/types/types';
+import { base64ToFile } from '@/utils/base64-to-file';
+import { useEffect } from 'react';
 
-export default function CreateForm() {
+type CreateFormProps = {
+  path?: string;
+};
+
+export default function CreateForm(props: CreateFormProps) {
+  const { path } = props;
+
+  const targetItem = useProductStore((state) => state.targetItem);
+  const addTargetItem = useProductStore((state) => state.addTargetItem);
+
   const {
     register,
     handleSubmit,
     reset,
     setValue,
     formState: { errors, isValid },
-  } = useForm<FormInputs>({ mode: 'onChange', resolver: standardSchemaResolver(basicSchema) });
+  } = useForm<FormInputs>({
+    mode: 'onChange',
+    resolver: standardSchemaResolver(basicSchema),
+  });
 
   const setData = useProductStore((state) => state.setItem);
+  const updateItem = useProductStore((state) => state.updateItem);
   const id = useProductStore((state) => state.id);
   const increment = useProductStore((state) => state.increment);
+
+  useEffect(() => {
+    if (path && path === '/create') {
+      addTargetItem(null);
+      return;
+    }
+
+    if (targetItem) {
+      const file = base64ToFile(targetItem?.images[0], 'random_ass_name.png', 'image/png');
+
+      reset({
+        title: targetItem.title,
+        description: targetItem.description,
+        brand: targetItem.brand,
+        category: targetItem.category,
+        stock: targetItem.stock,
+        price: targetItem.price,
+        width: targetItem.dimensions.width,
+        height: targetItem.dimensions.height,
+        depth: targetItem.dimensions.depth ?? 0,
+        image: file,
+      });
+    }
+  }, [targetItem, reset, path, addTargetItem]);
 
   const onSubmit: SubmitHandler<FormInputs> = async (data) => {
     console.log(data);
@@ -33,7 +72,7 @@ export default function CreateForm() {
     if (typeof base64 === 'string') {
       const object: ProductDetails = {
         ...data,
-        id: id,
+        id: targetItem ? targetItem.id : id,
         dimensions: {
           depth: data.depth,
           height: data.height,
@@ -42,9 +81,15 @@ export default function CreateForm() {
         images: [base64],
       };
 
-      increment();
-      setData(object);
+      if (!targetItem) {
+        increment();
+        setData(object);
+      } else {
+        updateItem(targetItem.id, object);
+      }
+
       reset();
+      addTargetItem(null);
     }
   };
 

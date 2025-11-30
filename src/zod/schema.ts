@@ -8,9 +8,8 @@ const imageSchema = z
 const stringValidation = z
   .string()
   .min(2)
-  .max(72)
+  .max(300)
   .regex(/^[A-Z]/, { error: 'Must be Capitalized!' })
-  .regex(/^[\s\w]+$/, { error: 'Word chars and spaces only!' })
   .trim();
 
 export const basicSchema = z.object({

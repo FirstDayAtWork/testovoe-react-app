@@ -17,9 +17,10 @@ export default function RemoveButton(props: RemoveButtonProps) {
   return (
     <button
       type="button"
-      name="close-details"
+      name="remove-card"
       onClick={handleRemoveEvent}
-      className={cn('absolute top-2 right-2')}
+      className={cn('hover:cursor-pointer')}
+      title="Remove Card"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

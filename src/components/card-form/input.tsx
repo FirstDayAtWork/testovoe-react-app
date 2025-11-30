@@ -59,6 +59,7 @@ export default function Input(props: InputProps): JSX.Element {
           id={content[0]}
           name={content[0]}
           className={cn('border-border-card h-10 w-full rounded-lg border-2 bg-black p-2')}
+          {...(content[1] === 'number' && { step: '0.01' })}
         />
       )}
 

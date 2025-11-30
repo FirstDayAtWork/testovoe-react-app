@@ -1,5 +1,6 @@
 'use client';
 
+import CreateForm from '@/components/card-form/card-form';
 import Cards from '@/components/cards/cards';
 import Settings from '@/components/settings/settings';
 import { useProductStore } from '@/stores/product-store';
@@ -8,7 +9,10 @@ import Loader from '@/ui/loader/loader';
 import ReloadButton from '@/ui/reload-button/reload-button';
 import { cn } from '@/utils/cn';
 import { URLS } from '@/utils/urls';
-import { useEffect } from 'react';
+import dynamic from 'next/dynamic';
+import { useEffect, useRef } from 'react';
+
+const ModalComponent = dynamic(() => import('@/components/modal/modal'), { ssr: false });
 
 export default function Products() {
   const fetchData = useProductStore((state) => state.fetchData);
@@ -16,10 +20,17 @@ export default function Products() {
   const isLoading = useProductStore((state) => state.isLoading);
   const items = useProductStore((state) => state.items);
 
+  const dialogReference = useRef<HTMLDialogElement>(null);
+  const setModalRef = useProductStore((state) => state.setModalRef);
+
   useEffect(() => {
     if (items.products.length > 0) return;
     fetchData(URLS.get);
   }, [fetchData, items.products.length]);
+
+  useEffect(() => {
+    setModalRef(dialogReference);
+  }, [setModalRef]);
 
   if (isLoading) {
     return <Loader />;
@@ -44,6 +55,10 @@ export default function Products() {
         <Settings />
         <Cards items={items} />
       </main>
+
+      <ModalComponent title={'Edit Card'} dialogReference={dialogReference}>
+        <CreateForm />
+      </ModalComponent>
     </div>
   );
 }

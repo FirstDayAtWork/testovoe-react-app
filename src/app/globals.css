@@ -11,6 +11,10 @@
   --disabled-color: rgb(104 104 104 / 40%);
 }
 
+:root:has(#modal-dialog:modal[open]) {
+  overflow: hidden;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
