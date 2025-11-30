@@ -1,5 +1,6 @@
-import type { Products } from '@/types/types';
+'use client';
 
+import type { Products } from '@/types/types';
 import Card from './card';
 import { cn } from '@/utils/cn';
 import { useProductStore } from '@/stores/product-store';

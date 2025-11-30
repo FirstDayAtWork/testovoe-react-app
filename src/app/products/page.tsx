@@ -10,7 +10,7 @@ import ReloadButton from '@/ui/reload-button/reload-button';
 import { cn } from '@/utils/cn';
 import { URLS } from '@/utils/urls';
 import dynamic from 'next/dynamic';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, Suspense } from 'react';
 
 const ModalComponent = dynamic(() => import('@/components/modal/modal'), { ssr: false });
 
@@ -53,7 +53,9 @@ export default function Products() {
         )}
       >
         <Settings />
-        <Cards items={items} />
+        <Suspense fallback={<Loader />}>
+          <Cards items={items} />
+        </Suspense>
       </main>
 
       <ModalComponent title={'Edit Card'} dialogReference={dialogReference}>

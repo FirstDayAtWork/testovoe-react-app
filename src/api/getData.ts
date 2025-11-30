@@ -33,3 +33,13 @@ export async function getCurrentProduct(url: string) {
     }
   }
 }
+
+export async function getAllProducts(url: string): Promise<Products> {
+  const response = await fetch(url);
+  const data: Products = await response.json();
+  if (response.ok) {
+    return data;
+  }
+
+  throw new Error('Something went wrong');
+}
