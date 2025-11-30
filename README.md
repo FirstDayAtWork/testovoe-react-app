@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Run locally
 
-## Getting Started
-
-First, run the development server:
+Run dev server:
 
 ```bash
+clone repo
+npm i
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<p>Don't forget to comment this lines in `next.config.ts` !<p>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```js
+  output: 'export',
+  basePath: '/testovoe-react-app',
+  assetPrefix: '/testovoe-react-app',
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## What I've done
 
-## Learn More
+### /products
 
-To learn more about Next.js, take a look at the following resources:
+- [x] Display the full list of products
+- [x] The product card should have a like icon. Clicking on it toggles the like status. The icon should be highlighted when liked.
+- [x] The product card should have a delete icon. Clicking it removes the card.
+- [x] Add a filter to view all cards or only the favorite card
+- [x] The card content (text) should be truncated so that all cards have the same height
+- [x] Clicking anywhere on the card (except the like icon or delete button) should navigate to the product's separate page
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### /products/:id
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [x] Show detailed information about the product
+- [x] Add a button to return to the main page
 
-## Deploy on Vercel
+### /create
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [x] Implement product creation
+- [x] Create a form with mandatory fields and minimal validation
+- [x] On form submission, save data to the global store
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Bonuses
+
+- [ ] Implement pagination for the list
+- [x] Implement the ability to edit product cards
+- [ ] Implement additional filtering
+- [x] Implement search (without a submit button)
