@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "deploy": "gh-pages -d out",
+    "predeploy": "npm run build && touch out/.nojekyll",
     "lint": "eslint \"src/**/*.{ts,tsx}\" --fix",
     "format-fix": "prettier --write \"src/**/*.{ts,tsx}\"",
     "prepare": "husky"

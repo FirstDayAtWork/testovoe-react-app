@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   basePath: '/testovoe-react-app',
   assetPrefix: '/testovoe-react-app/',
   images: {
+    unoptimized: true,
     remotePatterns: [new URL('https://cdn.dummyjson.com/product-images/**')],
   },
 };
