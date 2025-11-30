@@ -2,12 +2,12 @@
   "name": "testovoe-react-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://FirstDayAtWork.github.io/{testovoe-react-app}",
+  "homepage": "https://firstdayatwork.github.io/{testovoe-react-app}",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "deploy": "next build && gh-pages -d out",
+    "deploy": "gh-pages -d out",
     "lint": "eslint \"src/**/*.{ts,tsx}\" --fix",
     "format-fix": "prettier --write \"src/**/*.{ts,tsx}\"",
     "prepare": "husky"
