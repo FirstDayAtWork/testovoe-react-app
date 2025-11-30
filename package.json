@@ -2,7 +2,7 @@
   "name": "testovoe-react-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://firstdayatwork.github.io/{testovoe-react-app}",
+  "homepage": "https://firstdayatwork.github.io/testovoe-react-app",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
