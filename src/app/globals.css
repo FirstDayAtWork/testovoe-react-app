@@ -1,0 +1,50 @@
+@import 'tailwindcss';
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --card-background: #121419;
+  --border-color: #1f2029;
+  --border-color-2: #121212;
+  --text-color: rgba(224, 224, 224, 0.58);
+  --disabled-bg-color: rgb(71 71 71 / 40%);
+  --disabled-color: rgb(104 104 104 / 40%);
+}
+
+:root:has(#modal-dialog:modal[open]) {
+  overflow: hidden;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card-background);
+  --color-border-card: var(--border-color);
+  --color-border-2: var(--border-color-2);
+  --color-text-card: var(--text-color);
+  --color-button: var(--button-background);
+  --color-bg-disabled: var(--disabled-bg-color);
+  --color-disabled: var(--disabled-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --card-background: #121419;
+    --button-background: #73fdea;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
