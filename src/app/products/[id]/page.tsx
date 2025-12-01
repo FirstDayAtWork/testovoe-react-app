@@ -11,7 +11,7 @@ type Slugs = {
 };
 
 type PageProps = {
-  params: Slugs;
+  params: Promise<Slugs>;
 };
 
 export async function generateStaticParams(): Promise<Slugs[]> {
@@ -19,12 +19,12 @@ export async function generateStaticParams(): Promise<Slugs[]> {
   return data.products.map((item) => ({ id: item.id.toString() }));
 }
 
-export default function Page({ params }: PageProps) {
-  const slug = params.id;
+export default async function Page({ params }: PageProps) {
+  const slug = await params;
 
   return (
     <div className={cn('flex w-full flex-col items-center justify-center p-5 max-sm:p-1')}>
-      {<Details slug={slug} />}
+      {<Details slug={slug.id} />}
       <div className={cn('flex w-full justify-center p-5')}>
         <RedirectButton href="/" title="Go to Main" width={'400px'} />
       </div>
